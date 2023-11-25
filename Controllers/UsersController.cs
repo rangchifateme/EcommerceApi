@@ -10,13 +10,16 @@ namespace EcommerceApi.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IConfiguration _configuration;
+        private readonly ApplicationDbContext _context;
         private readonly IUsersService _usersService;
-        public UsersController(IConfiguration configuration)
+        public UsersController(IConfiguration configuration, ApplicationDbContext context)
         {
-            _configuration = configuration;            
+            _configuration = configuration;
+            _context = context;
+            _usersService = new UsersService(context);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("register")]
         public Response registerUser(UsersModel user) { 
             var responseMessage = _usersService.registerUser(user);
