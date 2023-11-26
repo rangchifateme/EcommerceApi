@@ -31,5 +31,26 @@ namespace EcommerceApi.Controllers
             };
             return res;
         }
+        [HttpGet]
+        [Route("getAll")]
+        public Response getAllUsers()
+        {
+            try {
+                var users = _usersService.getAllUsers();
+                return new Response {
+                    ListUsers = users,
+                    StatusCode = 200
+                };
+            }
+            catch(Exception ex) {
+                return new Response
+                {
+                    StatusCode = 400,
+                    StatusMessage = ex.Message
+                };
+            }
+            
+            
+        }
     }
 }

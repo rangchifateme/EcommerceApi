@@ -31,5 +31,9 @@ namespace EcommerceApi.Services
             }
             return "";
         }
+
+        public List<Users> getAllUsers() {
+         return _context.Users.ToList();
+        }
     }
 }
