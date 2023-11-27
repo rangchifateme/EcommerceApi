@@ -1,5 +1,6 @@
 ﻿using EcommerceApi.Entities;
 using EcommerceApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EcommerceApi.Services
 {
@@ -34,6 +35,20 @@ namespace EcommerceApi.Services
 
         public List<Users> getAllUsers() {
          return _context.Users.ToList();
+        }
+
+        public string deleteUserWithEmail(string email)
+        {
+            try
+            {
+                _context.Remove(_context.Users.Single(t => t.EmailAddress == email));
+                _context.SaveChanges();
+                return "successful";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }
