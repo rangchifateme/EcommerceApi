@@ -31,6 +31,14 @@ namespace EcommerceApi.Controllers
             };
             return res;
         }
+        [HttpDelete]
+        [Route("deleteUserWithEmail")]
+        public Response deleteUserWithEmail(string emailAddress) {
+            return new Response {
+                StatusCode = 200,
+                StatusMessage = _usersService.deleteUserWithEmail(emailAddress)
+            };
+        }
         [HttpGet]
         [Route("getAll")]
         public Response getAllUsers()
