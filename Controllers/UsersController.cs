@@ -1,4 +1,5 @@
-﻿using EcommerceApi.Models;
+﻿using EcommerceApi.Entities;
+using EcommerceApi.Models;
 using EcommerceApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -39,6 +40,7 @@ namespace EcommerceApi.Controllers
                 StatusMessage = _usersService.deleteUserWithEmail(emailAddress)
             };
         }
+
         [HttpGet]
         [Route("getAll")]
         public Response getAllUsers()
@@ -59,6 +61,23 @@ namespace EcommerceApi.Controllers
             }
             
             
+        }
+
+        [HttpPost]
+        [Route("updateUserWithId")]
+        public Response UpdateUserWithId(Users user)
+        {
+            var result = _usersService.updateUserWithUserId(user);
+            var final = new Response();
+            final.StatusMessage = result;
+            if (result == "successful")
+            {
+                final.StatusCode = 200;
+            }
+            else {
+                final.StatusCode = 400;
+            }
+            return final;
         }
     }
 }

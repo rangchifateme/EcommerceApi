@@ -50,5 +50,22 @@ namespace EcommerceApi.Services
                 return ex.Message;
             }
         }
+        public string updateUserWithUserId(Users user)
+        {
+            try {
+                var usr = _context.Users.First(u => u.Id == user.Id);
+                usr.FirstName = user.FirstName;
+                usr.PhoneNumber = user.PhoneNumber;
+                usr.LasttName = user.LasttName; 
+                usr.Password = user.Password;
+                usr.EmailAddress = user.EmailAddress;
+                _context.SaveChanges();
+                return "successful";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
     }
 }
