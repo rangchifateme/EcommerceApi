@@ -10,17 +10,7 @@ namespace EcommerceApi.Services
         public UsersService(ApplicationDbContext context) { 
         _context = context;
         }
-        public string registerUser(UsersModel usersModel) {
-            Users user = new Users
-            {
-                Id = usersModel.Id,
-                EmailAddress = usersModel.EmailAddress,
-                FirstName = usersModel.FirstName,
-                LasttName = usersModel.LastName,
-                Password = usersModel.Password,
-                PhoneNumber = usersModel.PhoneNumber
-            };
-
+        public string registerUser(Users user) {
             try
             {
                 _context.Users.Add(user);
