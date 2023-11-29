@@ -5,7 +5,7 @@ namespace EcommerceApi.Services
 {
     public interface IUsersService
     {
-        public string registerUser(UsersModel usersModel);
+        public string registerUser(Users usersModel);
         public List<Users> getAllUsers();
         public string deleteUserWithEmail(string email);
         public string updateUserWithUserId(Users user);

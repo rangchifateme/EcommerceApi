@@ -22,7 +22,7 @@ namespace EcommerceApi.Controllers
 
         [HttpPost]
         [Route("register")]
-        public Response registerUser(UsersModel user) { 
+        public Response registerUser(Users user) { 
             var responseMessage = _usersService.registerUser(user);
             int statusCode = responseMessage == "" ? 200 : 400;
             Response res = new Response

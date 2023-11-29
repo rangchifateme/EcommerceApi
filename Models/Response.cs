@@ -8,14 +8,14 @@ namespace EcommerceApi.Models
         public string StatusMessage { get; set; }
 
         public List<Users> ListUsers { get; set; }
-        public UsersModel User { get; set; }
+        public Users User { get; set; }
 
-        public List<ProductsModel> ListProducrs { get; set; }
-        public ProductsModel Product { get; set; }
-        public List<CartModel> ListCarts { get; set; }
-        public List<OrdersModel> ListOrders { get; set; }
-        public OrdersModel Order { get; set; }
-        public List<OrderItemsModel> ListOrderItems { get; set; }
-        public OrderItemsModel OrderItem { get; set; }
+        public List<Products> ListProducrs { get; set; }
+        public Products Product { get; set; }
+        public List<Cart> ListCarts { get; set; }
+        public List<Orders> ListOrders { get; set; }
+        public Orders Order { get; set; }
+        public List<OrderItems> ListOrderItems { get; set; }
+        public OrderItems OrderItem { get; set; }
     }
 }
