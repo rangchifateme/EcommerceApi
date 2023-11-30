@@ -79,5 +79,12 @@ namespace EcommerceApi.Controllers
             }
             return final;
         }
+
+        [HttpGet]
+        [Route("getUserInfoByFirstname")]
+        public Response getUserInfoByFirstname(string firstName) {
+            var users = _usersService.getUserInfoByFirstname(firstName);
+            return new Response { ListUsers = users };
+        }
     }
 }
