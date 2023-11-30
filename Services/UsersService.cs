@@ -57,5 +57,8 @@ namespace EcommerceApi.Services
                 return ex.Message;
             }
         }
+        public List<Users> getUserInfoByFirstname(string firstname) {
+            return _context.Users.Where(u => u.FirstName == firstname).ToList();
+        }
     }
 }
