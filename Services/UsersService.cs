@@ -57,6 +57,23 @@ namespace EcommerceApi.Services
                 return ex.Message;
             }
         }
+        public string updateUserWithEmail(Users user)
+        {
+            try {
+                var usr = _context.Users.First(u => u.EmailAddress == user.EmailAddress);
+                usr.FirstName = user.FirstName;
+                usr.PhoneNumber = user.PhoneNumber;
+                usr.LasttName = user.LasttName; 
+                usr.Password = user.Password;
+                usr.EmailAddress = user.EmailAddress;
+                _context.SaveChanges();
+                return "successful";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public List<Users> getUserInfoByFirstname(string firstname) {
             return _context.Users.Where(u => u.FirstName == firstname).ToList();
         }
