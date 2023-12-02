@@ -79,6 +79,23 @@ namespace EcommerceApi.Controllers
             }
             return final;
         }
+        
+        [HttpPost]
+        [Route("updateUserWithEmail")]
+        public Response UpdateUserWithEmail(Users user)
+        {
+            var result = _usersService.updateUserWithEmail(user);
+            var final = new Response();
+            final.StatusMessage = result;
+            if (result == "successful")
+            {
+                final.StatusCode = 200;
+            }
+            else {
+                final.StatusCode = 400;
+            }
+            return final;
+        }
 
         [HttpGet]
         [Route("getUserInfoByFirstname")]

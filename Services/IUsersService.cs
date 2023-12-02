@@ -9,6 +9,7 @@ namespace EcommerceApi.Services
         public List<Users> getAllUsers();
         public string deleteUserWithEmail(string email);
         public string updateUserWithUserId(Users user);
+        public string updateUserWithEmail(Users user);
         public List<Users> getUserInfoByFirstname(string firstname);
     }
 }
