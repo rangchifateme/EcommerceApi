@@ -13,5 +13,18 @@ namespace EcommerceApi.Services
         {
             return _context.Products.ToList();
         }
+        public string deleteProductWithId(int id)
+        {
+            try
+            {
+                _context.Remove(_context.Products.Single(p => p.Id == id));
+                _context.SaveChanges();
+                return "successful";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
     }
 }
