@@ -41,4 +41,15 @@ namespace EcommerceApi.Controllers
             }
 
         }
+        [HttpDelete]
+        [Route("deleteProductWithId")]
+        public Response deleteProductWithId(int id)
+        {
+            return new Response
+            {
+                StatusCode = 200,
+                StatusMessage = _productsService.deleteProductWithId(id)
+            };
+        }
     }
+}
