@@ -1,4 +1,5 @@
-﻿using EcommerceApi.Models;
+﻿using EcommerceApi.Entities;
+using EcommerceApi.Models;
 using EcommerceApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -41,6 +42,19 @@ namespace EcommerceApi.Controllers
             }
 
         }
+        [HttpPost]
+        [Route("addNewProduct")]
+        public Response addNewProduct(Products product) {
+            var responseMessage = _productsService.addNewProduct(product);
+            int statusCode = responseMessage == "" ? 200 : 400;
+            Response res = new Response
+            {
+                StatusCode = statusCode,
+                StatusMessage = responseMessage
+            };
+            return res;
+        }
+
         [HttpDelete]
         [Route("deleteProductWithId")]
         public Response deleteProductWithId(int id)
