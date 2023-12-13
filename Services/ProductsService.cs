@@ -25,6 +25,23 @@ namespace EcommerceApi.Services
             }
             return "";
         }
+        public string updateProductWithProductId(Products product) {
+            try
+            {
+                var prd = _context.Products.First(p => p.Id == product.Id);
+                prd.ProductName = product.ProductName;
+                prd.UnitPrice = product.UnitPrice;
+                prd.Quantity = product.Quantity;
+                prd.Status = product.Status;
+                prd.Discount = product.Discount;
+                _context.SaveChanges();
+                return "successful";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string deleteProductWithId(int id)
         {
             try
