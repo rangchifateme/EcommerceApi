@@ -6,6 +6,7 @@ namespace EcommerceApi.Services
     {
         public List<Products> getAllProducts();
         public string addNewProduct(Products product);
+        public string updateProductWithProductId(Products product);
         public string deleteProductWithId(int id);
     }
 }
