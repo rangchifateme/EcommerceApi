@@ -8,5 +8,6 @@ namespace EcommerceApi.Services
         public string addNewProduct(Products product);
         public string updateProductWithProductId(Products product);
         public string deleteProductWithId(int id);
+        public string updateProductWithProductName(Products product);
     }
 }
