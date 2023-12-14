@@ -72,6 +72,23 @@ namespace EcommerceApi.Controllers
             }
             return final;
         }
+        [HttpPost]
+        [Route("UpdateProductWithName")]
+        public Response updateProductWithName(Products product)
+        {
+            var result = _productsService.updateProductWithProductName(product);
+            var final = new Response();
+            final.StatusMessage = result;
+            if (result == "successful")
+            {
+                final.StatusCode = 200;
+            }
+            else
+            {
+                final.StatusCode = 400;
+            }
+            return final;
+        }
         [HttpDelete]
         [Route("deleteProductWithId")]
         public Response deleteProductWithId(int id)
