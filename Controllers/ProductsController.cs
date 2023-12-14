@@ -28,7 +28,7 @@ namespace EcommerceApi.Controllers
                 var products = _productsService.getAllProducts();
                 return new Response
                 {
-                    ListProducrs = products,
+                    ListProducts = products,
                     StatusCode = 200
                 };
             }
@@ -41,6 +41,14 @@ namespace EcommerceApi.Controllers
                 };
             }
 
+        }
+        [HttpGet]
+        [Route("getProductByProductName")]
+        public Response getProductByProductName(string productName) {
+            return new Response
+            {
+                ListProducts = _productsService.getProductDetailByProductName(productName),
+            };
         }
         [HttpPost]
         [Route("addNewProduct")]

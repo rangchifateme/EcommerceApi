@@ -72,5 +72,9 @@ namespace EcommerceApi.Services
                 return ex.Message;
             }
         }
+
+        public List<Products> getProductDetailByProductName(string productName) { 
+            return _context.Products.Where(p=>p.ProductName == productName).ToList();
+        }
     }
 }
